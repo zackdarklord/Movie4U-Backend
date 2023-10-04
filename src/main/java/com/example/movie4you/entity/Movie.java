@@ -1,15 +1,16 @@
 package com.example.movie4you.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter
 @Setter
 @AllArgsConstructor
+@NoArgsConstructor
 @ToString
 public class Movie {
     @Id
@@ -20,7 +21,8 @@ public class Movie {
     private Genre  genre;
 
     private String image;
+    @OneToMany
+    private List<Rating> ratings = new ArrayList<>();
 
-    public Movie() {
-    }
+
 }
